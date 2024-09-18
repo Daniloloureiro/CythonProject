@@ -1,5 +1,6 @@
-cimport numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
+
 
 def circuito_RC():
     # Parâmetros do circuito
@@ -21,6 +22,7 @@ def circuito_RC():
     Vc_discharge = V0 * np.exp(-t / tau)  # Tensão no capacitor durante a descarga
     I_discharge = -(V0 / R) * np.exp(-t / tau)  # Corrente durante a descarga
 
+    
     # Criação do gráfico
     plt.figure(figsize=(12, 8))
 
@@ -40,8 +42,19 @@ def circuito_RC():
     plt.plot(t, I_discharge, label='Corrente (Descarga)', color='orange', linestyle='--')
     plt.xlabel('Tempo (s)')
     plt.ylabel('Corrente (A)')
-    plt.legend()
-    plt.grid()
+
 
     plt.tight_layout()
     return plt.show()
+
+def Vc_I_Time():
+    V0 = 5  # Tensão da fonte em volts
+    R = 1000  # Resistência em ohms (1 kΩ)
+    C = 0.001  # Capacitância em farads (1000 μF)
+    # Constante de tempo
+    tau = R * C
+    # Tempo para simulação
+    t = np.linspace(0, 5 * tau, 1000)  # 0 a 5 tau
+    Vc_discharge = V0 * np.exp(-t / tau)  # Tensão no capacitor durante a descarga
+    I_discharge = -(V0 / R) * np.exp(-t / tau)  # Corrente durante a descarga
+    return Vc_discharge*I_discharge
