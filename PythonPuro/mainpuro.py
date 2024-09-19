@@ -1,3 +1,4 @@
+import timeit
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -103,3 +104,26 @@ plt.grid()
 
 plt.tight_layout()
 plt.show()
+
+def Vc_I_Time_py(n_points=100):
+    V0 = 5.0
+    R = 1000.0
+    C = 0.001
+    tau = R * C
+    t_max = 5 * tau
+    
+    result = np.empty(n_points)
+    
+    step = t_max / (n_points - 1)
+    
+    for i in range(n_points):
+        t = i * step
+        exp_val = np.exp(-t / tau)
+        result[i] = V0 * V0 * exp_val * exp_val / R
+    
+    return result
+
+
+
+execution_time2 = timeit.timeit(lambda: Vc_I_Time_py(100), number=100)
+print(f"Execution time: {execution_time2} seconds")
