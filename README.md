@@ -1,4 +1,4 @@
-# Projeto Cython: Carregamento e Descarga de Circuito CR
+# Projeto Cython: Carregamento e Descarga de Circuito RC
 
 Este projeto demonstra a aplicação da tecnologia Cython para otimizar o cálculo do carregamento e descarga de um circuito RC (Resistor-Capacitor). Utilizando Cython, conseguimos acelerar os cálculos, permitindo simulações mais rápidas e eficientes.
 
